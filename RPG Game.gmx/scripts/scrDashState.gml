@@ -1,4 +1,7 @@
 /// scrDashState
+if(len == 0) {
+    dir = face * 90;
+}
 
 len = spd*5;
 

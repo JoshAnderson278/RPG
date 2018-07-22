@@ -1,9 +1,16 @@
 /// scrMoveState
 scrGetInput();
 
-if (dashKey) {
+if (dashKey and objPlayerStats.stamina >= 5) {
     state = scrDashState;
     alarm[0] = room_speed/8;
+    objPlayerStats.stamina -= 5;
+    objPlayerStats.alarm[0] = room_speed;
+}
+
+if (attackKey) {
+    image_index = 0;
+    state = scrAttackState;   
 }
 
 // Get the axist
@@ -18,10 +25,11 @@ dir = point_direction(0, 0, xaxis, yaxis);
 
 
 // Get Length 
-if ( xaxis == 0 and yaxis = 0) {
+if ( xaxis == 0 and yaxis == 0) {
     len = 0;
 } else {
     len = spd;
+    scrGetFace();    
 }
 
 // get hspd and vsdp
@@ -38,10 +46,19 @@ phy_position_y += vspd;
 image_speed = sign(len)*.2
 if(len == 0) image_index = 0;
 
-if(vspd > 0) sprite_index = sprPlayerDown;
-else if(vspd < 0) sprite_index = sprPlayerUp;
 
-if(hspd > 0) sprite_index = sprPlayerRight;
-else if(hspd < 0) sprite_index = sprPlayerLeft;
-
+switch(face) {
+    case RIGHT:
+        sprite_index = sprPlayerRight;
+        break;
+    case UP:
+        sprite_index = sprPlayerUp;
+        break;
+    case LEFT:
+        sprite_index = sprPlayerLeft;
+        break;
+    case DOWN:
+        sprite_index = sprPlayerDown;
+        break;
+}
 
