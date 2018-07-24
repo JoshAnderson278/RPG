@@ -59,46 +59,6 @@ instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="objSpeaker">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// activate the dialog
-
-with(other) {
-    if(!instance_exists(dialog)) {
-        dialog = instance_create(x, y+yoffset, objDialog);
-        dialog.text = text;
-    } else {
-        dialog.textpage++;
-        dialog.textcount = 0;
-        if(dialog.textpage &gt; array_length_1d(dialog.text)-1) {
-            with(dialog) {
-                instance_destroy();
-            }
-        }
-    }
-    
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="objLifeformParent">
       <action>
         <libid>1</libid>
@@ -158,6 +118,7 @@ if(other.id != creator) {
             <kind>1</kind>
             <string>/// Damage the player
 if(other.id != creator) {
+    audio_play_sound(snd_player_takes_damage, 9, false);
     objPlayerStats.hp -= damage;
     
     // Apply the knockback

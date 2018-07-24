@@ -4,9 +4,13 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_enemy_die</sound>
+    <sound>sound\snd_expr</sound>
+    <sound>sound\snd_player_takes_damage</sound>
+    <sound>sound\snd_sword_attack</sound>
+  </sounds>
   <sprites name="sprites">
-    <sprite>sprites\PlayerSpr</sprite>
     <sprite>sprites\sprDoor</sprite>
     <sprite>sprites\WallSpr</sprite>
     <sprites name="Player">
@@ -26,6 +30,18 @@
     <sprite>sprites\sprHealth</sprite>
     <sprite>sprites\sprSign</sprite>
     <sprite>sprites\sprDialogBox</sprite>
+    <sprites name="Chinlin">
+      <sprite>sprites\spr_chinlin_run_up</sprite>
+      <sprite>sprites\spr_chinlin_stand_down</sprite>
+      <sprite>sprites\spr_chinlin_stand_right</sprite>
+      <sprite>sprites\spr_chinlin_stand_up</sprite>
+      <sprite>sprites\spr_chinlin_run_down</sprite>
+      <sprite>sprites\spr_chinlin_run_right</sprite>
+    </sprites>
+    <sprites name="Weapons">
+      <sprite>sprites\sprSword</sprite>
+      <sprite>sprites\spr_axe</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bgGrass</background>
@@ -41,37 +57,64 @@
       <script>scripts\scrGetInput.gml</script>
       <script>scripts\scrGetFace.gml</script>
       <script>scripts\scrChance.gml</script>
+      <script>scripts\scrStringCopyWords.gml</script>
+      <script>scripts\scrSaveGame.gml</script>
+      <script>scripts\scrLoadGame.gml</script>
+      <script>scripts\scrSwapWeapons.gml</script>
     </scripts>
     <scripts name="EnemyScript">
       <scripts name="EnemyHelperScripts">
         <script>scripts\scrEnemyChooseNextState.gml</script>
         <script>scripts\scrCheckForPlayer.gml</script>
+        <script>scripts\scrMoveAxis.gml</script>
       </scripts>
       <script>scripts\scrEnemyIdleState.gml</script>
       <script>scripts\scrEnemyStallState.gml</script>
       <script>scripts\scrEnemyWanderState.gml</script>
       <script>scripts\scrEnemyChaseState.gml</script>
     </scripts>
+    <script>scripts\scrAnimationHitFrame.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\objLifeformParent</object>
-    <object>objects\objPlayer</object>
-    <object>objects\objWall</object>
-    <object>objects\objView</object>
-    <object>objects\objEnemySlime</object>
-    <object>objects\objDashEffect</object>
+    <object>objects\objProjectile</object>
     <object>objects\objDamage</object>
-    <object>objects\objPlayerStats</object>
-    <object>objects\objExpr</object>
-    <object>objects\objHealth</object>
-    <object>objects\objDoor</object>
-    <object>objects\objSpeaker</object>
-    <object>objects\objDialog</object>
-    <object>objects\objSign</object>
+    <objects name="LifeForm">
+      <objects name="Player">
+        <object>objects\objPlayer</object>
+        <object>objects\objPlayerStats</object>
+        <object>objects\objDashEffect</object>
+      </objects>
+      <object>objects\objLifeformParent</object>
+      <objects name="Enemies">
+        <object>objects\objEnemySlime</object>
+        <object>objects\objEnemyChinlin</object>
+      </objects>
+    </objects>
+    <objects name="Other">
+      <object>objects\objHealth</object>
+      <object>objects\objExpr</object>
+      <object>objects\objInput</object>
+    </objects>
+    <objects name="View and Menus">
+      <object>objects\objPauseMenu</object>
+      <object>objects\objSpeaker</object>
+      <object>objects\objView</object>
+      <object>objects\objDialog</object>
+    </objects>
+    <objects name="Walls and Signs">
+      <object>objects\objDoor</object>
+      <object>objects\objWall</object>
+      <object>objects\objSign</object>
+    </objects>
+    <objects name="Weapons">
+      <object>objects\objWeaponAnimation</object>
+      <object>objects\objWeaponItem</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
     <room>rooms\room2</room>
+    <room>rooms\roomPause</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

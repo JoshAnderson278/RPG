@@ -1,5 +1,5 @@
 /// scrEnemyIdleState
-
+movement = IDLE;
 scrCheckForPlayer();
 
 

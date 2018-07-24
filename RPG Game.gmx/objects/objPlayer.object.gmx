@@ -26,18 +26,31 @@
           <argument>
             <kind>1</kind>
             <string>///Creation Script
+if (instance_number(objPlayer) &gt; 1) instance_destroy();
 event_inherited();
-hp = 3;
 spd = 3;
 hspd = 0;
 vspd = 0;
+xaxis = 0;
+yaxis = 0;
 image_speed = 0;
-scrGetInput();
 state = scrMoveState;
 len = 0;
 dir = 0;
-attacked = false;
 face = RIGHT;
+movement = MOVE;
+weapon_sprite = sprSword;
+
+//Create Sprite Array
+sprite[RIGHT,MOVE] = sprPlayerRight;
+sprite[UP, MOVE] = sprPlayerUp;
+sprite[LEFT, MOVE] = sprPlayerLeft;
+sprite[DOWN, MOVE] = sprPlayerDown;
+
+sprite[RIGHT, ATTACK] = sprPlayerAttackRight;
+sprite[UP, ATTACK] = sprPlayerAttackUp;
+sprite[LEFT, ATTACK] = sprPlayerAttackLeft;
+sprite[DOWN, ATTACK] = sprPlayerAttackDown;
 
 </string>
           </argument>
@@ -92,6 +105,8 @@ depth = -y;
 
 script_execute(state);
 
+sprite_index = sprite[face, movement];
+
 // Check for Death
 if(objPlayerStats.hp &lt;= 0) instance_destroy();
 
@@ -122,7 +137,10 @@ if(objPlayerStats.hp &lt;= 0) instance_destroy();
             <kind>1</kind>
             <string>/// Collect Health
 
-with(other) instance_destroy();
+with(other){
+    instance_destroy();
+    audio_play_sound(snd_expr, 4, false);
+}
 
 // Adding Health
 with(objPlayerStats) {
@@ -180,7 +198,10 @@ if (room_exists(other.newRoom)) {
             <kind>1</kind>
             <string>/// Collect Experiance
 
-with(other) instance_destroy();
+with(other) {
+    instance_destroy();
+    audio_play_sound(snd_expr, 4, false);
+}
 
 // Level up code
 with(objPlayerStats) {
@@ -248,6 +269,7 @@ if( state == scrAttackState) {
             <kind>1</kind>
             <string>/// Set Fixed Rotation
 phy_fixed_rotation = true;
+persistent = true;
 </string>
           </argument>
         </arguments>

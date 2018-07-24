@@ -1,46 +1,39 @@
 /// scrAttackState
+movement = ATTACK;
 
 image_speed = .5;
 
-switch(sprite_index) {
-    case sprPlayerDown: 
-        sprite_index = sprPlayerAttackDown;
-        break;
-    case sprPlayerUp: 
-        sprite_index = sprPlayerAttackUp;
-        break;
-    case sprPlayerLeft:
-        sprite_index = sprPlayerAttackLeft;
-        break;
-    case sprPlayerRight:
-        sprite_index = sprPlayerAttackRight;
-        break;
+if(scrAnimationHitFrame(2)) {
+    var attackAnimation = instance_create(x, y, objWeaponAnimation);
+    attackAnimation.dir = face*90;
+    attackAnimation.image_angle = (face*90)+45;
+    attackAnimation.sprite_index = weapon_sprite;
 }
 
-if (image_index >= 3 and attacked == false) {
+if (scrAnimationHitFrame(3) ) {
     
     var xx = 0;
     var yy = 0
     
-    switch(sprite_index) {
-        case sprPlayerAttackDown: 
+    switch(face) {
+        case DOWN: 
             xx = x;
             yy = y + 12;
             break;
-        case sprPlayerAttackUp: 
+        case UP: 
             xx = x;
             yy = y - 10;
             break;
-        case sprPlayerAttackLeft:
+        case LEFT:
             xx = x - 10;
             yy = y + 2;
             break;
-        case sprPlayerAttackRight:
+        case RIGHT:
             xx = x + 10;
             yy = y + 2;
             break;
     }
-    
+    audio_play_sound(snd_sword_attack, 8, false);
     var damage = instance_create(xx, yy, objDamage);
     damage.creator = id;
     damage.damage = objPlayerStats.attack;

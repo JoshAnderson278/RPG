@@ -7,7 +7,7 @@
   <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code></code>
@@ -436,6 +436,10 @@
     <instance objName="objDoor" x="560" y="336" name="inst_F65B820A" locked="0" code="newRoom = room2;&#xA;newX = 48;&#xA;newY = 32;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWall" x="576" y="320" name="inst_E2D62B6B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSign" x="320" y="240" name="inst_33FFF255" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInput" x="96" y="64" name="inst_06FD066F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEnemyChinlin" x="64" y="240" name="inst_CAAAF97E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEnemyChinlin" x="528" y="240" name="inst_EA9E6F5D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWeaponItem" x="96" y="208" name="inst_110BF9B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
