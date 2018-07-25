@@ -1,0 +1,54 @@
+Everything needed for Turn Based RPG
+
+	World Room to contain whole world
+		Towns/Cities/Dungeons/etc in world map
+			would have hitboxes for when player enters, change room to correct place
+		map of the world
+			togglable
+		vehicle? airship? boat?
+			hitbox to get in
+		character(s)
+			collision with water and mountins unless otherwise specified
+		view
+			follow the player (middle? or slow follow?)
+		
+	Rooms for each town/city/dungeon/etc
+		character(s)
+		bad guys
+		chests?
+		triggers/buttons?
+		puzzles?
+		view
+			On top of player or slow follow?
+		way to determine when battle happens
+			Should this be pre-determined? 
+				preset tiles have enemies
+				could have multiple presets determined by a random generator
+			Or completely random?	
+				different every playthrough since it is random
+		
+	Battle room
+		Characters
+		enemies
+		separator for stats section
+		stats section (hp/mp/who is attacking/actions)
+		pop-ups on characters and enemies for damage done
+		
+	inventory room
+		inventory
+		stats
+		magic/machines/etc
+		special items?
+		character profiles/descriptions
+		help
+		save
+		load
+		quit
+		return
+	
+	Pause screen
+		return
+		save
+		load
+		quit
+		
