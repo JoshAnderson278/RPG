@@ -12,9 +12,13 @@ Everything needed for Turn Based RPG
 		view
 			follow the player (middle? or slow follow?)
 		
+		
 	Rooms for each town/city/dungeon/etc
 		character(s)
-		bad guys
+			if we do larger than four or five people, could split into two or three parties
+			still could with four or five characters
+		bad guys?
+			bosses that appear here before going into the battle screen
 		chests?
 		triggers/buttons?
 		puzzles?
@@ -27,12 +31,14 @@ Everything needed for Turn Based RPG
 			Or completely random?	
 				different every playthrough since it is random
 		
+		
 	Battle room
 		Characters
 		enemies
 		separator for stats section
 		stats section (hp/mp/who is attacking/actions)
 		pop-ups on characters and enemies for damage done
+		
 		
 	inventory room
 		inventory
@@ -45,10 +51,21 @@ Everything needed for Turn Based RPG
 		load
 		quit
 		return
+		
 	
 	Pause screen
 		return
 		save
 		load
 		quit
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
